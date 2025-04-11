@@ -1,7 +1,8 @@
 # agents/main_agent.py
+from agents.main_agent import handle_query
 
-def get_agent_response(user_input):
-    # Simple rule-based logic for demo
+
+def handle_query(user_input):
     user_input = user_input.lower()
 
     if "refund" in user_input:
@@ -15,10 +16,10 @@ def get_agent_response(user_input):
     else:
         return "I'm sorry, I couldn't understand your request. Could you please rephrase it?"
 
-# Example usage (for testing only)
-if name == "main":
+# Optional testing (for standalone run)
+if __name__ == "__main__":
     while True:
         query = input("You: ")
         if query.lower() in ['exit', 'quit']:
             break
-        print("Bot:", get_agent_response(query))
+        print("Bot:", handle_query(query))
