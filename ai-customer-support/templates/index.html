@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Customer Support</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Customer Support</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <h1>AI Customer Support</h1>
-    <div class="chat-box"></div>
+    <header>
+        AI Customer Support Chatbot
+    </header>
 
-    <form>
-      <input type="text" id="user-input" placeholder="Type your question..." required />
-      <button type="submit">Send</button>
-    </form>
-  </div>
+    <div class="chat-container" id="chat">
+        <div class="message user">You: hi!!</div>
+        <div class="message bot">Bot: Hello! How can I help you today?</div>
+        <div class="message user">You: refund for my double payment</div>
+        <div class="message bot">Bot: To request a refund, please submit a support ticket with your payment ID.</div>
+        <div class="message user">You: ok tell me the working hours</div>
+        <div class="message bot">Bot: Our working hours are from 9 AM to 6 PM, Monday to Friday.</div>
 
-  <!-- LINK JS FILE -->
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <div class="input-area">
+            <input type="text" placeholder="Type your question..." />
+            <button>Send</button>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 VU Chatbot | Built for GeeksforGeeks Hackathon
+    </footer>
 </body>
 </html>
