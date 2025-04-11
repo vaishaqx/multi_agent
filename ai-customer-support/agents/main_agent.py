@@ -1,27 +1,24 @@
-from transformers import pipeline
+# agents/main_agent.py
 
-# Load the NLP model once
-nlp = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+def get_agent_response(user_input):
+    # Simple rule-based logic for demo
+    user_input = user_input.lower()
 
-def handle_query(user_input):
-    intents = [
-        "refund request",
-        "payment issue",
-        "technical issue",
-        "greeting",
-        "incomplete transaction"
-    ]
-    
-    result = nlp(user_input, candidate_labels=intents)
-    best_intent = result["labels"][0]
-
-    if best_intent == "refund request":
-        return "To request a refund, please submit a support ticket with your payment ID."
-    elif best_intent in ["payment issue", "incomplete transaction"]:
-        return "It seems like your payment was incomplete. Please verify the transaction or contact support."
-    elif best_intent == "technical issue":
-        return "I'm here to assist you with technical issues. Could you please describe the problem?"
-    elif best_intent == "greeting":
-        return "Hello! How can I assist you today?"
+    if "refund" in user_input:
+        return "To process a refund, please provide your order ID and reason for the refund."
+    elif "order status" in user_input or "track order" in user_input:
+        return "You can track your order using the tracking link sent to your email."
+    elif "cancel order" in user_input:
+        return "Your order can be cancelled within 24 hours of placement. Please confirm your order ID."
+    elif "help" in user_input:
+        return "Sure! I'm here to help. Please tell me what you need assistance with."
     else:
-        return "I'm sorry, I didn't understand that. Could you please rephrase?"
+        return "I'm sorry, I couldn't understand your request. Could you please rephrase it?"
+
+# Example usage (for testing only)
+if name == "main":
+    while True:
+        query = input("You: ")
+        if query.lower() in ['exit', 'quit']:
+            break
+        print("Bot:", get_agent_response(query))
