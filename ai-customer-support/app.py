@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from agents.main_agent import handle_query
+from agents.main_agent import handle_query  # just importing the function
 
 app = Flask(__name__)
 
